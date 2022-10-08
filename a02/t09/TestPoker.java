@@ -18,6 +18,8 @@ public class TestPoker {
 
       cards = deck.getCardsForPlayers(8);
 
+      System.out.println(cards);
+
       assert cards.size() == 8;
       assert cards.get(0).size() == 5;
 
