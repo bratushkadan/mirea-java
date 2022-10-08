@@ -26,13 +26,27 @@ public class Sum {
 
     System.out.println("Каждое введенное вами число будем суммироваться. Введите любую фразу для завершения.");
 
-    int sum = 0;
+    int sum = 0, min = 0, max = 0;
+    boolean noInput = true;
     while (sc.hasNextInt()) {
-      sum += sc.nextInt();
+      int num = sc.nextInt();
+      if (noInput) {
+        min = num;
+        max = num;
+        noInput = false;
+      } else {
+        min = Math.min(min, num);
+        max = Math.max(max, num);
+      }
+      
+      sum += num;
     }
 
     sc.close();
 
     System.out.format("Сумма: %d\n", sum);
+    if (!noInput) {
+      System.out.format("Минимальное число: %d\nмаксимальное число: d\n", min, max);
+    }
   }
 }
